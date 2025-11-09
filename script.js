@@ -2,8 +2,8 @@ const time = document.getElementById("time");
 const date = document.getElementById("date");
 
 var currentTime = new Date();
-var currentHour = currentTime.getHours();
-var currentMinutes = currentTime.getMinutes();
+var currentHour = currentTime.getHours().toString().padStart(2, '0');
+var currentMinutes = currentTime.getMinutes().toString().padStart(2, '0');
 var timeString = `${currentHour}:${currentMinutes}`;
 
 time.innerHTML = timeString;
@@ -13,17 +13,7 @@ const dateString = currentTime.toLocaleDateString("en-GB", options);
 date.textContent = dateString;
 
 ("use strict");
-// add elemnts
-const bgBody = [
-  "#e5e7e9",
-  "#ff4545",
-  "#f8ded3",
-  "#ffc382",
-  "#f5eda6",
-  "#ffcbdc",
-  "#dcf3f3",
-];
-const body = document.body;
+
 const player = document.querySelector(".player");
 const playerHeader = player.querySelector(".player__header");
 const playerControls = player.querySelector(".player__controls");
@@ -49,7 +39,7 @@ const playIcon = playButton.querySelector("img[alt = 'play-icon']");
 const progres = player.querySelector(".progres");
 const progresFilled = progres.querySelector(".progres__filled");
 let isMove = false;
-// creat functions
+
 function openPlayer() {
   playerHeader.classList.add("open-header");
   playerControls.classList.add("move");
@@ -106,9 +96,7 @@ function changeSliderContext() {
     sliderTitle.append(textWrap);
   }
 }
-function changeBgBody() {
-  body.style.backgroundColor = bgBody[count];
-}
+
 function selectSong() {
   song = playerSongs[count];
   for (const item of playerSongs) {
@@ -119,11 +107,12 @@ function selectSong() {
   }
   if (isPlay) song.play();
 }
+
 function run() {
   changeSliderContext();
-  changeBgBody();
   selectSong();
 }
+
 function playSong() {
   if (song.paused) {
     song.play();
@@ -136,6 +125,7 @@ function playSong() {
     pauseIcon.style.display = "";
   }
 }
+
 function progresUpdate() {
   const progresFilledWidth = (this.currentTime / this.duration) * 100 + "%";
   progresFilled.style.width = progresFilledWidth;
@@ -148,13 +138,14 @@ function progresUpdate() {
     isPlay = false;
   }
 }
+
 function scurb(e) {
-  // If we use e.offsetX, we have trouble setting the song time, when the mousemove is running
   const currentTime =
     ((e.clientX - progres.getBoundingClientRect().left) / progres.offsetWidth) *
     song.duration;
   song.currentTime = currentTime;
 }
+
 function durationSongs() {
   let min = parseInt(this.duration / 60);
   if (min < 10) min = "0" + min;
@@ -165,8 +156,8 @@ function durationSongs() {
     .querySelector(".player__song-time")
     .append(playerSongTime);
 }
+
 changeSliderContext();
-// add events
 sliderContext.addEventListener("click", openPlayer);
 sliderContext.addEventListener(
   "animationend",
