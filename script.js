@@ -45,11 +45,13 @@ function openPlayer() {
   playerControls.classList.add("move");
   slider.classList.add("open-slider");
 }
+
 function closePlayer() {
   playerHeader.classList.remove("open-header");
   playerControls.classList.remove("move");
   slider.classList.remove("open-slider");
 }
+
 function next(index) {
   count = index || count;
   if (count == sliderContentLength) {
@@ -62,6 +64,7 @@ function next(index) {
   count++;
   run();
 }
+
 function back(index) {
   count = index || count;
   if (count == 0) {
@@ -74,6 +77,7 @@ function back(index) {
   count--;
   run();
 }
+
 function changeSliderContext() {
   sliderContext.style.animationName = "opacity";
   sliderName.textContent =

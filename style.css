@@ -35,6 +35,8 @@ body,
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-size: 15px;
+    background-color: transparent;
+    border: none;
 }
 
 .app-icon {
@@ -398,4 +400,29 @@ img[alt="pause-icon"] {
     border-radius: 10px;
     border: 2px solid black;
     z-index: 100;
+    display: none;
+    overflow: hidden;
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.close-button {
+    border: none;
+    width: 50px;
+    height: 25px;
+    background-color: transparent;
+}
+
+.close-button:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.content {
+    padding: 30px;
 }

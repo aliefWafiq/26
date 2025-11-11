@@ -10,18 +10,31 @@
 
 <body>
     <div class="container">
-        <div class="window">
-            asd
+        <div class="window" id="txt-window">
+            <div class="menu">
+                <button class="close-button" onclick="closeTxt()">X</button>
+            </div>
+            <div class="content">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum ex iste veniam eveniet dolores temporibus vero praesentium nihil officiis sequi?</p>
+            </div>
+        </div>
+        <div class="window" id="gallery-window">
+            <div class="menu">
+                <button class="close-button" onclick="closeGallery()">X</button>
+            </div>
+            <div class="content">
+
+            </div>
         </div>
         <div class="apps-wrapper">
-            <div class="app">
+            <button class="app" onclick="showTxt()">
                 <img src="asset/baca.png" alt="" class="baca-icon">
                 <p class="app-name">Baca Aku.txt</p>
-            </div>
-            <div class="app">
+            </button>
+            <button class="app" onclick="showGallery()">
                 <img src="asset/gallery icon.png" alt="" class="app-icon">
                 <p class="app-name">Gallery</p>
-            </div>
+            </button>
         </div>
         <div class="widget-wrapper">
             <div class="time-wrapper">
@@ -144,3 +157,4 @@
 
 </html>
 <script src="script.js"></script>
+<script src="window.js"></script>
